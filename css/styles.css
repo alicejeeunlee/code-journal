@@ -51,6 +51,11 @@ textarea {
   font-family: "Open Sans", sans-serif;
 }
 
+input:focus,
+textarea:focus {
+  outline: 2px solid rgb(86, 42, 129);
+}
+
 .button-align {
   display: flex;
   justify-content: flex-end;
