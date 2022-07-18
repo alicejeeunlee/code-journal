@@ -30,6 +30,7 @@
 
   .img-half {
     padding-left: 0;
+    max-height: fit-content;
   }
 
   .input-half {
@@ -38,5 +39,9 @@
 
   .column-half {
     width: 50%;
+  }
+
+  .revert-img {
+    max-height: none;
   }
 }
