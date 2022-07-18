@@ -28,6 +28,14 @@
     padding: 0 0.75rem;
   }
 
+  .img-half {
+    padding-left: 0;
+  }
+
+  .input-half {
+    padding-right: 0;
+  }
+
   .column-half {
     width: 50%;
   }

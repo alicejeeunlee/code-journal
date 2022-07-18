@@ -11,29 +11,41 @@
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
     crossorigin="anonymous"
     referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Proza+Libre&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
-    <h1>Code Journal</h1>
+    <div class="container">
+      <div class="column-full">
+        <h1>Code Journal</h1>
+      </div>
+    </div>
   </header>
   <main>
-    <h2>New Entry</h2>
-    <div data-view="entry-form">
-      <form action="">
-        <img src="images/placeholder-image-square.jpg" alt="Placeholder image">
-        <label for="title">Title
-          <input id="title" type="text">
-        </label>
-        <label for="photoURL">Photo URL
-          <input id="photoURL" type="url">
-        </label>
-        <label for="notes">Notes
-          <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
-        </label>
-        <input type="submit" value="SAVE">
+    <div data-view="entry-form" class="container">
+      <form action="" class="row">
+        <div class="column-full">
+          <h2>New Entry</h2>
+          <div class="row">
+            <div class="column-half img-half">
+              <img src="images/placeholder-image-square.jpg" alt="Placeholder image">
+            </div>
+            <div class="column-half input-half">
+              <label for="title">Title</label>
+              <input id="title" type="text">
+              <label for="photoURL">Photo URL</label>
+              <input id="photoURL" type="url">
+            </div>
+          </div>
+          <label for="notes">Notes</label>
+          <textarea name="notes" id="notes" cols="30" rows="8"></textarea>
+          <div class="button-align">
+            <button>SAVE</button>
+          </div>
+        </div>
       </form>
     </div>
   </main>
