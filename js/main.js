@@ -26,6 +26,7 @@ function renderEntry(entry) {
   $li.setAttribute('class', 'row entry');
   var $img = document.createElement('img');
   $img.setAttribute('src', entry.photoURL);
+  $img.setAttribute('alt', entry.title);
   $img.setAttribute('class', 'column-half img-half');
   $li.appendChild($img);
   var $div = document.createElement('div');
@@ -46,5 +47,18 @@ window.addEventListener('DOMContentLoaded', function (event) {
   var $ul = document.querySelector('ul');
   for (var i = 0; i < data.entries.length; i++) {
     $ul.appendChild(renderEntry(data.entries[i]));
+  }
+});
+
+var $nav = document.querySelector('nav');
+var $dataViewEntryForm = document.querySelector('.data-form');
+var $dataViewEntries = document.querySelector('.data-entries');
+$nav.addEventListener('click', function (event) {
+  if (event.target.matches('.entries-link')) {
+    $dataViewEntryForm.className = 'container data-form hidden';
+    $dataViewEntries.className = 'container data-entries';
+  } else {
+    $dataViewEntryForm.className = 'container data-form';
+    $dataViewEntries.className = 'container data-entries hidden';
   }
 });
