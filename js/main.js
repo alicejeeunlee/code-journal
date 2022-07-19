@@ -57,7 +57,12 @@ $nav.addEventListener('click', function (event) {
   if (event.target.matches('.entries-link')) {
     $dataViewEntryForm.className = 'container data-form hidden';
     $dataViewEntries.className = 'container data-entries';
-  } else {
+  }
+});
+
+var $newButton = document.querySelector('.new-button');
+$newButton.addEventListener('click', function (event) {
+  if (event.target.matches('.new-button')) {
     $dataViewEntryForm.className = 'container data-form';
     $dataViewEntries.className = 'container data-entries hidden';
   }
