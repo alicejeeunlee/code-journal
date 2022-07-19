@@ -7,14 +7,14 @@ var data = {
   nextEntryId: 1
 };
 
-var previousJSONEntries = localStorage.getItem('javascript-local-storage');
-if (previousJSONEntries !== null) {
-  data.entries = JSON.parse(previousJSONEntries);
+var previousJSONData = localStorage.getItem('javascript-local-storage');
+if (previousJSONData !== null) {
+  data = JSON.parse(previousJSONData);
 }
 
-function addEntriesToLocalStorage(event) {
-  var JSONEntries = JSON.stringify(data.entries);
-  localStorage.setItem('javascript-local-storage', JSONEntries);
+function addDataToLocalStorage(event) {
+  var JSONData = JSON.stringify(data);
+  localStorage.setItem('javascript-local-storage', JSONData);
 }
 
-window.addEventListener('beforeunload', addEntriesToLocalStorage);
+window.addEventListener('beforeunload', addDataToLocalStorage);
