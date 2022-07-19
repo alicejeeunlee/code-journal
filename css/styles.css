@@ -1,4 +1,7 @@
-* {
+h1,
+h2,
+h3,
+label {
   font-family: "Proza Libre", sans-serif;
 }
 
@@ -64,9 +67,10 @@ textarea:focus {
   outline: 2px solid rgb(86, 42, 129);
 }
 
-.button-align {
+.save-button-align {
   display: flex;
   justify-content: flex-end;
+  margin-top: 1rem;
 }
 
 button {
@@ -76,5 +80,34 @@ button {
   border: none;
   border-radius: 3px;
   padding: 0.3rem;
-  margin-top: 1rem;
+}
+
+.new-button-align {
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-button {
+  margin: 1.5rem 0;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+}
+
+.entry {
+  margin-bottom: 1rem;
 }
