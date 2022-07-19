@@ -19,6 +19,8 @@ $form.addEventListener('submit', function (event) {
   data.entries.unshift(formData);
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
+  var $ul = document.querySelector('ul');
+  $ul.prepend(renderEntry(formData));
   $dataViewEntryForm.className = 'container data-form hidden';
   $dataViewEntries.className = 'container data-entries';
 });
