@@ -1,7 +1,8 @@
 h1,
 h2,
 h3,
-label {
+label,
+a {
   font-family: "Proza Libre", sans-serif;
 }
 
@@ -35,7 +36,7 @@ h2 {
 
 img {
   width: 100%;
-  max-height: 250px;
+  max-height: 260px;
   object-fit: cover;
   border-radius: 3px;
   margin-bottom: 1rem;
@@ -119,4 +120,16 @@ p {
 
 .hidden {
   display: none;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+
+.nav-align {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
