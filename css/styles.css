@@ -111,3 +111,12 @@ p {
 .entry {
   margin-bottom: 1rem;
 }
+
+.no-entries {
+  justify-content: center;
+  margin: 2rem auto;
+}
+
+.hidden {
+  display: none;
+}
