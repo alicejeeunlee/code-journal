@@ -1,0 +1,80 @@
+* {
+  font-family: "Proza Libre", sans-serif;
+}
+
+input,
+label,
+textarea {
+  display: block;
+  width: 100%;
+}
+
+body {
+  background-color: rgb(240, 240, 240);
+}
+
+header {
+  background-color: rgb(86, 42, 129);
+}
+
+h1 {
+  color: white;
+  font-weight: 100;
+  font-size: 22px;
+  margin: 0;
+  padding: 1rem 0;
+}
+
+h2 {
+  font-size: 32px;
+  margin: 1rem 0;
+}
+
+img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 3px;
+  margin-bottom: 1rem;
+}
+
+label {
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+textarea {
+  padding: 0.5rem;
+}
+
+input,
+textarea {
+  border: 1px solid rgb(182, 182, 182);
+  border-radius: 3px;
+  font-family: "Open Sans", sans-serif;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid rgb(86, 42, 129);
+}
+
+.button-align {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  background-color: rgb(86, 42, 129);
+  width: 60px;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 0.3rem;
+  margin-top: 1rem;
+}

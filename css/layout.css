@@ -28,7 +28,20 @@
     padding: 0 0.75rem;
   }
 
+  .img-half {
+    padding-left: 0;
+    max-height: fit-content;
+  }
+
+  .input-half {
+    padding-right: 0;
+  }
+
   .column-half {
     width: 50%;
+  }
+
+  .revert-img {
+    max-height: none;
   }
 }
