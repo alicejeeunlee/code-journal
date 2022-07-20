@@ -25,6 +25,8 @@ $form.addEventListener('submit', function (event) {
   $dataViewEntries.className = 'container data-entries';
   var $entriesDataView = $dataViewEntries.getAttribute('data-view');
   localStorage.setItem('code-journal-data-view', $entriesDataView);
+  var $noEntriesMessage = document.querySelector('.no-entries');
+  $noEntriesMessage.className = 'no-entries hidden';
 });
 
 function renderEntry(entry) {
@@ -87,6 +89,6 @@ $newButton.addEventListener('click', function (event) {
 });
 
 var $noEntriesMessage = document.querySelector('.no-entries');
-if (data.entries.length === 0) {
-  $noEntriesMessage.className = 'no-entries';
+if (data.entries.length > 0) {
+  $noEntriesMessage.className = 'no-entries hidden';
 }
