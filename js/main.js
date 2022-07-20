@@ -9,18 +9,31 @@ var $form = document.querySelector('form');
 
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
-  var formData = {
-    title: $form.elements.title.value,
-    photoURL: $form.elements.photoURL.value,
-    notes: $form.elements.notes.value
-  };
-  formData.entryId = data.nextEntryId;
-  data.nextEntryId = data.nextEntryId + 1;
-  data.entries.unshift(formData);
-  $img.setAttribute('src', 'images/placeholder-image-square.jpg');
+  if (data.editing !== null) {
+    data.editing.title = $form.elements.title.value;
+    data.editing.photoURL = $form.elements.photoURL.value;
+    data.editing.notes = $form.elements.notes.value;
+    var entryId = data.editing.entryId;
+    var $allLi = document.querySelectorAll('li');
+    for (var i = 0; i < $allLi.length; i++) {
+      if (Number($allLi[i].dataset.entryId) === entryId) {
+        $allLi[i].replaceWith(renderEntry(data.editing));
+      }
+    }
+  } else {
+    var formData = {
+      title: $form.elements.title.value,
+      photoURL: $form.elements.photoURL.value,
+      notes: $form.elements.notes.value
+    };
+    formData.entryId = data.nextEntryId;
+    data.nextEntryId = data.nextEntryId + 1;
+    data.entries.unshift(formData);
+    $img.setAttribute('src', 'images/placeholder-image-square.jpg');
+    var $ul = document.querySelector('ul');
+    $ul.prepend(renderEntry(formData));
+  }
   $form.reset();
-  var $ul = document.querySelector('ul');
-  $ul.prepend(renderEntry(formData));
   var $entryForm = document.querySelector('#form');
   var $entries = document.querySelector('#entries');
   $entryForm.className = 'container data-form hidden';
@@ -91,6 +104,7 @@ var $newButton = document.querySelector('.new-button');
 
 $newButton.addEventListener('click', function (event) {
   data.view = 'entry-form';
+  data.editing = null;
   viewSwap(data.view);
 });
 
