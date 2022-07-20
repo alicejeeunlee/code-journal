@@ -99,3 +99,10 @@ var $noEntriesMessage = document.querySelector('.no-entries');
 if (data.entries.length > 0) {
   $noEntriesMessage.className = 'no-entries hidden';
 }
+
+var $ul = document.querySelector('ul');
+$ul.addEventListener('click', function (event) {
+  if (event.target.matches('.fa-pen')) {
+    // console.log('edit clicked!');
+  }
+});
