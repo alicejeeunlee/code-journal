@@ -105,5 +105,17 @@ $ul.addEventListener('click', function (event) {
   if (event.target.matches('.fa-pen')) {
     data.view = 'entry-form';
     viewSwap(data.view);
+    var $selectedEntry = event.target.closest('li');
+    var entryId = Number($selectedEntry.getAttribute('data-entry-id'));
+    data.editing = matchEntries(entryId);
+    // console.log('data.editing:', data.editing);
   }
 });
+
+function matchEntries(id) {
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].entryId === id) {
+      return data.entries[i];
+    }
+  }
+}
