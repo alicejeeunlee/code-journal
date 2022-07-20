@@ -58,46 +58,39 @@ window.addEventListener('DOMContentLoaded', function (event) {
   for (var i = 0; i < data.entries.length; i++) {
     $ul.appendChild(renderEntry(data.entries[i]));
   }
+  viewSwap(data.view);
+});
+
+var $allView = document.querySelectorAll('.view');
+
+function viewSwap(view) {
   for (var j = 0; j < $allView.length; j++) {
-    if ($allView[j].getAttribute('data-view') === data.view) {
+    if ($allView[j].getAttribute('data-view') === view) {
       $allView[j].className = 'container view';
     } else {
       $allView[j].className = 'container view hidden';
     }
   }
-});
+}
 
 var $nav = document.querySelector('nav');
-var $allView = document.querySelectorAll('.view');
 
 $nav.addEventListener('click', function (event) {
   if (event.target.matches('.entries-link')) {
-    for (var i = 0; i < $allView.length; i++) {
-      if ($allView[i].getAttribute('data-view') === 'entries') {
-        $allView[i].className = 'container view';
-      } else {
-        $allView[i].className = 'container view hidden';
-      }
-    }
+    data.view = 'entries';
+    viewSwap(data.view);
   }
-  data.view = 'entries';
 });
 
 var $newButton = document.querySelector('.new-button');
+
 $newButton.addEventListener('click', function (event) {
-  if (event.target.matches('.new-button')) {
-    for (var i = 0; i < $allView.length; i++) {
-      if ($allView[i].getAttribute('data-view') === 'entry-form') {
-        $allView[i].className = 'container view';
-      } else {
-        $allView[i].className = 'container view hidden';
-      }
-    }
-  }
   data.view = 'entry-form';
+  viewSwap(data.view);
 });
 
 var $noEntriesMessage = document.querySelector('.no-entries');
+
 if (data.entries.length > 0) {
   $noEntriesMessage.className = 'no-entries hidden';
 }
