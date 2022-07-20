@@ -103,6 +103,7 @@ if (data.entries.length > 0) {
 var $ul = document.querySelector('ul');
 $ul.addEventListener('click', function (event) {
   if (event.target.matches('.fa-pen')) {
-    // console.log('edit clicked!');
+    data.view = 'entry-form';
+    viewSwap(data.view);
   }
 });
