@@ -15,7 +15,7 @@ $form.addEventListener('submit', function (event) {
     notes: $form.elements.notes.value
   };
   formData.entryId = data.nextEntryId;
-  data.nextEntryId = data.nextEntryId++;
+  data.nextEntryId = data.nextEntryId + 1;
   data.entries.unshift(formData);
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
@@ -34,6 +34,7 @@ $form.addEventListener('submit', function (event) {
 function renderEntry(entry) {
   var $li = document.createElement('li');
   $li.setAttribute('class', 'row entry');
+  $li.setAttribute('data-entry-id', entry.entryId);
   var $img = document.createElement('img');
   $img.setAttribute('src', entry.photoURL);
   $img.setAttribute('alt', entry.title);
