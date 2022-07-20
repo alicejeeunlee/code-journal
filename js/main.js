@@ -15,16 +15,18 @@ $form.addEventListener('submit', function (event) {
     notes: $form.elements.notes.value
   };
   formData.entryId = data.nextEntryId;
-  data.nextEntryId = data.nextEntryId + 1;
+  data.nextEntryId = data.nextEntryId++;
   data.entries.unshift(formData);
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
   var $ul = document.querySelector('ul');
   $ul.prepend(renderEntry(formData));
-  $dataViewEntryForm.className = 'container data-form hidden';
-  $dataViewEntries.className = 'container data-entries';
-  var $entriesDataView = $dataViewEntries.getAttribute('data-view');
-  localStorage.setItem('code-journal-data-view', $entriesDataView);
+  var $entryForm = document.querySelector('#form');
+  var $entries = document.querySelector('#entries');
+  $entryForm.className = 'container data-form hidden';
+  $entries.className = 'container data-entries';
+  var $entriesDataView = $entries.getAttribute('data-view');
+  data.view = $entriesDataView;
   var $noEntriesMessage = document.querySelector('.no-entries');
   $noEntriesMessage.className = 'no-entries hidden';
 });
@@ -56,36 +58,43 @@ window.addEventListener('DOMContentLoaded', function (event) {
   for (var i = 0; i < data.entries.length; i++) {
     $ul.appendChild(renderEntry(data.entries[i]));
   }
-  var JSONDataView = localStorage.getItem('code-journal-data-view');
-  if (JSONDataView === 'entries') {
-    $dataViewEntryForm.className = 'container data-form hidden';
-    $dataViewEntries.className = 'container data-entries';
-  } else {
-    $dataViewEntryForm.className = 'container data-form';
-    $dataViewEntries.className = 'container data-entries hidden';
+  for (var j = 0; j < $allView.length; j++) {
+    if ($allView[j].getAttribute('data-view') === data.view) {
+      $allView[j].className = 'container view';
+    } else {
+      $allView[j].className = 'container view hidden';
+    }
   }
 });
 
 var $nav = document.querySelector('nav');
-var $dataViewEntryForm = document.querySelector('.data-form');
-var $dataViewEntries = document.querySelector('.data-entries');
+var $allView = document.querySelectorAll('.view');
+
 $nav.addEventListener('click', function (event) {
   if (event.target.matches('.entries-link')) {
-    $dataViewEntryForm.className = 'container data-form hidden';
-    $dataViewEntries.className = 'container data-entries';
+    for (var i = 0; i < $allView.length; i++) {
+      if ($allView[i].getAttribute('data-view') === 'entries') {
+        $allView[i].className = 'container view';
+      } else {
+        $allView[i].className = 'container view hidden';
+      }
+    }
   }
-  var $entriesDataView = $dataViewEntries.getAttribute('data-view');
-  localStorage.setItem('code-journal-data-view', $entriesDataView);
+  data.view = 'entries';
 });
 
 var $newButton = document.querySelector('.new-button');
 $newButton.addEventListener('click', function (event) {
   if (event.target.matches('.new-button')) {
-    $dataViewEntryForm.className = 'container data-form';
-    $dataViewEntries.className = 'container data-entries hidden';
+    for (var i = 0; i < $allView.length; i++) {
+      if ($allView[i].getAttribute('data-view') === 'entry-form') {
+        $allView[i].className = 'container view';
+      } else {
+        $allView[i].className = 'container view hidden';
+      }
+    }
   }
-  var $formDataView = $dataViewEntryForm.getAttribute('data-view');
-  localStorage.setItem('code-journal-data-view', $formDataView);
+  data.view = 'entry-form';
 });
 
 var $noEntriesMessage = document.querySelector('.no-entries');
