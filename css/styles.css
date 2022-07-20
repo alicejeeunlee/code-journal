@@ -133,3 +133,12 @@ a {
   justify-content: flex-start;
   align-items: center;
 }
+
+.fa-pen {
+  color: rgb(86, 42, 129);
+}
+
+.icon-align {
+  display: flex;
+  justify-content: space-between;
+}

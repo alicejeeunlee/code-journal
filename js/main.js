@@ -43,8 +43,12 @@ function renderEntry(entry) {
   $div.setAttribute('class', 'column-half');
   $li.appendChild($div);
   var $h3 = document.createElement('h3');
+  $h3.setAttribute('class', 'icon-align');
   var $title = document.createTextNode(entry.title);
   $h3.appendChild($title);
+  var $i = document.createElement('i');
+  $i.setAttribute('class', 'fa-solid fa-pen');
+  $h3.appendChild($i);
   $div.appendChild($h3);
   var $p = document.createElement('p');
   var $notes = document.createTextNode(entry.notes);
