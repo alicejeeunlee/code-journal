@@ -1,4 +1,8 @@
-* {
+h1,
+h2,
+h3,
+label,
+a {
   font-family: "Proza Libre", sans-serif;
 }
 
@@ -32,7 +36,7 @@ h2 {
 
 img {
   width: 100%;
-  max-height: 250px;
+  max-height: 260px;
   object-fit: cover;
   border-radius: 3px;
   margin-bottom: 1rem;
@@ -64,9 +68,10 @@ textarea:focus {
   outline: 2px solid rgb(86, 42, 129);
 }
 
-.button-align {
+.save-button-align {
   display: flex;
   justify-content: flex-end;
+  margin-top: 1rem;
 }
 
 button {
@@ -76,5 +81,55 @@ button {
   border: none;
   border-radius: 3px;
   padding: 0.3rem;
-  margin-top: 1rem;
+}
+
+.new-button-align {
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-button {
+  margin: 1.5rem 0;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+}
+
+.entry {
+  margin-bottom: 1rem;
+}
+
+.no-entries {
+  justify-content: center;
+  margin: 2rem auto;
+}
+
+.hidden {
+  display: none;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+
+.nav-align {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
