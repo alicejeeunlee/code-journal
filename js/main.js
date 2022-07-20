@@ -23,6 +23,8 @@ $form.addEventListener('submit', function (event) {
   $ul.prepend(renderEntry(formData));
   $dataViewEntryForm.className = 'container data-form hidden';
   $dataViewEntries.className = 'container data-entries';
+  var $entriesDataView = $dataViewEntries.getAttribute('data-view');
+  localStorage.setItem('code-journal-data-view', $entriesDataView);
 });
 
 function renderEntry(entry) {
@@ -52,6 +54,14 @@ window.addEventListener('DOMContentLoaded', function (event) {
   for (var i = 0; i < data.entries.length; i++) {
     $ul.appendChild(renderEntry(data.entries[i]));
   }
+  var JSONDataView = localStorage.getItem('code-journal-data-view');
+  if (JSONDataView === 'entries') {
+    $dataViewEntryForm.className = 'container data-form hidden';
+    $dataViewEntries.className = 'container data-entries';
+  } else {
+    $dataViewEntryForm.className = 'container data-form';
+    $dataViewEntries.className = 'container data-entries hidden';
+  }
 });
 
 var $nav = document.querySelector('nav');
@@ -62,6 +72,8 @@ $nav.addEventListener('click', function (event) {
     $dataViewEntryForm.className = 'container data-form hidden';
     $dataViewEntries.className = 'container data-entries';
   }
+  var $entriesDataView = $dataViewEntries.getAttribute('data-view');
+  localStorage.setItem('code-journal-data-view', $entriesDataView);
 });
 
 var $newButton = document.querySelector('.new-button');
@@ -70,9 +82,11 @@ $newButton.addEventListener('click', function (event) {
     $dataViewEntryForm.className = 'container data-form';
     $dataViewEntries.className = 'container data-entries hidden';
   }
+  var $formDataView = $dataViewEntryForm.getAttribute('data-view');
+  localStorage.setItem('code-journal-data-view', $formDataView);
 });
 
 var $noEntriesMessage = document.querySelector('.no-entries');
-if (data.entries.length > 0) {
-  $noEntriesMessage.className = 'no-entries hidden';
+if (data.entries.length === 0) {
+  $noEntriesMessage.className = 'no-entries';
 }
