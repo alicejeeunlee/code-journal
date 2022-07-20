@@ -108,7 +108,10 @@ $ul.addEventListener('click', function (event) {
     var $selectedEntry = event.target.closest('li');
     var entryId = Number($selectedEntry.getAttribute('data-entry-id'));
     data.editing = matchEntries(entryId);
-    // console.log('data.editing:', data.editing);
+    document.querySelector('img').setAttribute('src', data.editing.photoURL);
+    document.querySelector('#title').setAttribute('value', data.editing.title);
+    document.querySelector('#photoURL').setAttribute('value', data.editing.photoURL);
+    document.querySelector('#notes').value = data.editing.notes;
   }
 });
 
