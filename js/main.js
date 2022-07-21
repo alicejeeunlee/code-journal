@@ -101,6 +101,10 @@ $nav.addEventListener('click', function (event) {
     data.editing = null;
     data.view = 'entries';
     viewSwap(data.view);
+    var $allEntry = document.querySelectorAll('.entry');
+    for (var i = 0; i < $allEntry.length; i++) {
+      $allEntry[i].className = 'row entry';
+    }
   }
 });
 
@@ -189,4 +193,18 @@ $confirmButton.addEventListener('click', function (event) {
   }
   data.view = 'entries';
   viewSwap(data.view);
+});
+
+var $searchButton = document.querySelector('.search-button');
+$searchButton.addEventListener('click', function (event) {
+  var $input = document.querySelector('#search').value.toLowerCase();
+  var $allEntry = document.querySelectorAll('.entry');
+  for (var i = 0; i < $allEntry.length; i++) {
+    if (!$allEntry[i].textContent.includes($input)) {
+      $allEntry[i].className = 'row entry hidden';
+    } else {
+      $allEntry[i].className = 'row entry';
+    }
+  }
+  document.querySelector('#search').value = null;
 });
