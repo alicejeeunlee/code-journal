@@ -157,3 +157,51 @@ a {
   width: auto;
   padding: 0;
 }
+
+.display-flex {
+  display: flex;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.backdrop {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: rgb(50 50 50 / 90%);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.modal {
+  width: 300px;
+  height: 100px;
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+  background-color: white;
+}
+
+.cancel-button {
+  background-color: rgb(182, 182, 182);
+  color: black;
+  width: 75px;
+}
+
+.confirm-button {
+  background-color: rgb(220, 38, 37);
+  color: white;
+  width: 75px;
+}
+
+.delete-message {
+  font-size: 12.5px;
+  margin-bottom: 1rem;
+}
