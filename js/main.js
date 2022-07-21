@@ -111,6 +111,7 @@ $newButton.addEventListener('click', function (event) {
   data.editing = null;
   viewSwap(data.view);
   document.querySelector('h2').textContent = 'New Entry';
+  $modalWindow.className = 'backdrop hidden';
   var $deleteButton = document.querySelector('.delete-button');
   $deleteButton.className = 'delete-button hidden';
   var $buttonDiv = document.querySelector('.button-align');
@@ -130,6 +131,7 @@ $ul.addEventListener('click', function (event) {
     data.view = 'entry-form';
     viewSwap(data.view);
     document.querySelector('h2').textContent = 'Edit Entry';
+    $modalWindow.className = 'backdrop hidden';
     var $deleteButton = document.querySelector('.delete-button');
     $deleteButton.className = 'delete-button';
     var $buttonDiv = document.querySelector('.button-align');
@@ -166,5 +168,21 @@ var $cancelButton = document.querySelector('.cancel-button');
 $cancelButton.addEventListener('click', function (event) {
   if (event.target.matches('.cancel-button')) {
     $modalWindow.className = 'backdrop hidden';
+  }
+});
+
+var $confirmButton = document.querySelector('.confirm-button');
+$confirmButton.addEventListener('click', function (event) {
+  var entryId = data.editing.entryId;
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].entryId === entryId) {
+      data.entries.splice(i, 1);
+    }
+  }
+  var $allEntry = document.querySelectorAll('.entry');
+  for (var k = 0; k < $allEntry.length; k++) {
+    if (Number($allEntry[k].getAttribute('data-entry-id')) === entryId) {
+      $allEntry[k].remove();
+    }
   }
 });
