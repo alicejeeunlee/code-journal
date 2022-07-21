@@ -42,6 +42,7 @@ $form.addEventListener('submit', function (event) {
   data.view = $entriesDataView;
   var $noEntriesMessage = document.querySelector('.no-entries');
   $noEntriesMessage.className = 'no-entries hidden';
+  document.querySelector('img').setAttribute('src', 'images/placeholder-image-square.jpg');
 });
 
 function renderEntry(entry) {
@@ -95,6 +96,9 @@ var $nav = document.querySelector('nav');
 
 $nav.addEventListener('click', function (event) {
   if (event.target.matches('.entries-link')) {
+    $form.reset();
+    document.querySelector('img').setAttribute('src', 'images/placeholder-image-square.jpg');
+    data.editing = null;
     data.view = 'entries';
     viewSwap(data.view);
   }
@@ -123,8 +127,8 @@ $ul.addEventListener('click', function (event) {
     var entryId = Number($selectedEntry.getAttribute('data-entry-id'));
     data.editing = matchEntries(entryId);
     document.querySelector('img').setAttribute('src', data.editing.photoURL);
-    document.querySelector('#title').setAttribute('value', data.editing.title);
-    document.querySelector('#photoURL').setAttribute('value', data.editing.photoURL);
+    document.querySelector('#title').value = data.editing.title;
+    document.querySelector('#photoURL').value = data.editing.photoURL;
     document.querySelector('#notes').value = data.editing.notes;
   }
 });
