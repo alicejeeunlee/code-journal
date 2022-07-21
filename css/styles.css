@@ -81,6 +81,7 @@ textarea:focus {
   justify-content: flex-end;
 }
 
+a,
 button {
   background-color: rgb(86, 42, 129);
   width: 60px;
@@ -97,6 +98,7 @@ button {
 
 .new-button {
   margin: 1.5rem 0;
+  text-align: center;
 }
 
 li {
