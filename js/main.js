@@ -107,6 +107,8 @@ $nav.addEventListener('click', function (event) {
 var $newButton = document.querySelector('.new-button');
 
 $newButton.addEventListener('click', function (event) {
+  $form.reset();
+  document.querySelector('img').setAttribute('src', 'images/placeholder-image-square.jpg');
   data.view = 'entry-form';
   data.editing = null;
   viewSwap(data.view);
