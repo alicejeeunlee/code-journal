@@ -124,6 +124,7 @@ if (data.entries.length > 0) {
 }
 
 var $ul = document.querySelector('ul');
+
 $ul.addEventListener('click', function (event) {
   if (event.target.matches('.fa-pen')) {
     data.view = 'entry-form';
@@ -153,8 +154,17 @@ function matchEntries(id) {
 
 var $deleteButton = document.querySelector('.delete-button');
 var $modalWindow = document.querySelector('.backdrop');
+
 $deleteButton.addEventListener('click', function (event) {
   if (event.target.matches('.delete-button')) {
     $modalWindow.className = 'backdrop';
+  }
+});
+
+var $cancelButton = document.querySelector('.cancel-button');
+
+$cancelButton.addEventListener('click', function (event) {
+  if (event.target.matches('.cancel-button')) {
+    $modalWindow.className = 'backdrop hidden';
   }
 });
