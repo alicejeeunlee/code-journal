@@ -101,10 +101,7 @@ $nav.addEventListener('click', function (event) {
     data.editing = null;
     data.view = 'entries';
     viewSwap(data.view);
-    var $allEntry = document.querySelectorAll('.entry');
-    for (var i = 0; i < $allEntry.length; i++) {
-      $allEntry[i].className = 'row entry';
-    }
+    showAllEntries();
   }
 });
 
@@ -196,6 +193,7 @@ $confirmButton.addEventListener('click', function (event) {
 });
 
 var $searchButton = document.querySelector('.search-button');
+var $searchInput = document.querySelector('#search');
 $searchButton.addEventListener('click', function (event) {
   var $input = document.querySelector('#search').value.toLowerCase();
   var $allEntry = document.querySelectorAll('.entry');
@@ -206,5 +204,16 @@ $searchButton.addEventListener('click', function (event) {
       $allEntry[i].className = 'row entry';
     }
   }
-  document.querySelector('#search').value = null;
+  $searchInput.value = null;
+});
+
+function showAllEntries() {
+  var $allEntry = document.querySelectorAll('.entry');
+  for (var i = 0; i < $allEntry.length; i++) {
+    $allEntry[i].className = 'row entry';
+  }
+}
+
+$searchInput.addEventListener('focus', function (event) {
+  showAllEntries();
 });
