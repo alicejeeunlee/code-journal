@@ -46,15 +46,15 @@
           <label for="notes">Notes</label>
           <textarea name="notes" id="notes" cols="30" rows="10" required></textarea>
           <div class="button-align flex-end">
-            <button class="delete-button hidden">Delete Entry</button>
-            <button>SAVE</button>
+            <button type="button" class="delete-button hidden">Delete Entry</button>
+            <button type="submit">SAVE</button>
           </div>
-          <div class="backdrop display-flex">
-            <div class="modal text-center justify-center">
+          <div class="backdrop hidden">
+            <div class="modal">
               <p class="delete-message">Are you sure you want to delete this entry?</p>
-              <div class="display-flex space-between">
-                <button class="cancel-button">CANCEL</button>
-                <button class="confirm-button">CONFIRM</button>
+              <div class="button-align space-between">
+                <button type="button" class="cancel-button">CANCEL</button>
+                <button type="button" class="confirm-button">CONFIRM</button>
               </div>
             </div>
           </div>
@@ -65,7 +65,7 @@
       <div class="row">
         <div class="column-full new-button-align">
           <h2>Entries</h2>
-          <button class="new-button">NEW</button>
+          <button type="button" class="new-button">NEW</button>
         </div>
         <p class="no-entries">No entries have been recorded.</p>
       </div>

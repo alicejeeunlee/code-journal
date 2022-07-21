@@ -158,18 +158,6 @@ a {
   padding: 0;
 }
 
-.display-flex {
-  display: flex;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
 .backdrop {
   width: 100vw;
   height: 100vh;
@@ -179,13 +167,16 @@ a {
   right: 0;
   bottom: 0;
   left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal {
   width: 300px;
   height: 100px;
   border-radius: 5px;
-  padding: 1rem 1.5rem;
+  padding: 0.5rem 1rem;
   background-color: white;
 }
 
@@ -202,6 +193,6 @@ a {
 }
 
 .delete-message {
-  font-size: 12.5px;
-  margin-bottom: 1rem;
+  font-size: 13.4px;
+  margin-bottom: 1.5rem;
 }

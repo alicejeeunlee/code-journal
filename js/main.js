@@ -150,3 +150,11 @@ function matchEntries(id) {
     }
   }
 }
+
+var $deleteButton = document.querySelector('.delete-button');
+var $modalWindow = document.querySelector('.backdrop');
+$deleteButton.addEventListener('click', function (event) {
+  if (event.target.matches('.delete-button')) {
+    $modalWindow.className = 'backdrop';
+  }
+});
