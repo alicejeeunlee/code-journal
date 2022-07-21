@@ -185,4 +185,6 @@ $confirmButton.addEventListener('click', function (event) {
       $allEntry[k].remove();
     }
   }
+  data.view = 'entries';
+  viewSwap(data.view);
 });
