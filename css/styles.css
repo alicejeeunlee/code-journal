@@ -36,7 +36,7 @@ h2 {
 
 img {
   width: 100%;
-  max-height: 260px;
+  max-height: 230px;
   object-fit: cover;
   border-radius: 3px;
   margin-bottom: 1rem;
@@ -68,10 +68,17 @@ textarea:focus {
   outline: 2px solid rgb(86, 42, 129);
 }
 
-.save-button-align {
+.button-align {
   display: flex;
-  justify-content: flex-end;
   margin-top: 1rem;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.flex-end {
+  justify-content: flex-end;
 }
 
 button {
@@ -141,4 +148,12 @@ a {
 .icon-align {
   display: flex;
   justify-content: space-between;
+}
+
+.delete-button {
+  background-color: rgba(255, 255, 255, 0);
+  color: red;
+  text-decoration: underline;
+  width: auto;
+  padding: 0;
 }

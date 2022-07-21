@@ -110,6 +110,11 @@ $newButton.addEventListener('click', function (event) {
   data.view = 'entry-form';
   data.editing = null;
   viewSwap(data.view);
+  document.querySelector('h2').textContent = 'New Entry';
+  var $deleteButton = document.querySelector('.delete-button');
+  $deleteButton.className = 'delete-button hidden';
+  var $buttonDiv = document.querySelector('.button-align');
+  $buttonDiv.className = 'button-align flex-end';
 });
 
 var $noEntriesMessage = document.querySelector('.no-entries');
@@ -123,6 +128,11 @@ $ul.addEventListener('click', function (event) {
   if (event.target.matches('.fa-pen')) {
     data.view = 'entry-form';
     viewSwap(data.view);
+    document.querySelector('h2').textContent = 'Edit Entry';
+    var $deleteButton = document.querySelector('.delete-button');
+    $deleteButton.className = 'delete-button';
+    var $buttonDiv = document.querySelector('.button-align');
+    $buttonDiv.className = 'button-align space-between';
     var $selectedEntry = event.target.closest('li');
     var entryId = Number($selectedEntry.getAttribute('data-entry-id'));
     data.editing = matchEntries(entryId);
