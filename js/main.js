@@ -202,7 +202,7 @@ $searchButton.addEventListener('click', function (event) {
   var $input = document.querySelector('#search').value.toLowerCase();
   var $allEntry = document.querySelectorAll('.entry');
   for (var i = 0; i < $allEntry.length; i++) {
-    if (!$allEntry[i].textContent.includes($input)) {
+    if (!$allEntry[i].textContent.toLowerCase().includes($input)) {
       $allEntry[i].className = 'row entry hidden';
     } else {
       $allEntry[i].className = 'row entry';
