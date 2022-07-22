@@ -188,6 +188,10 @@ $confirmButton.addEventListener('click', function (event) {
       $allEntry[k].remove();
     }
   }
+  if (data.entries.length === 0) {
+    var $noEntriesMessage = document.querySelector('.no-entries');
+    $noEntriesMessage.className = 'no-entries';
+  }
   data.view = 'entries';
   viewSwap(data.view);
 });
