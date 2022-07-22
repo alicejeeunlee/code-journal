@@ -101,6 +101,7 @@ $nav.addEventListener('click', function (event) {
     data.editing = null;
     data.view = 'entries';
     viewSwap(data.view);
+    showAllEntries();
   }
 });
 
@@ -187,6 +188,36 @@ $confirmButton.addEventListener('click', function (event) {
       $allEntry[k].remove();
     }
   }
+  if (data.entries.length === 0) {
+    var $noEntriesMessage = document.querySelector('.no-entries');
+    $noEntriesMessage.className = 'no-entries';
+  }
   data.view = 'entries';
   viewSwap(data.view);
+});
+
+var $searchButton = document.querySelector('.search-button');
+var $searchInput = document.querySelector('#search');
+$searchButton.addEventListener('click', function (event) {
+  var $input = document.querySelector('#search').value.toLowerCase();
+  var $allEntry = document.querySelectorAll('.entry');
+  for (var i = 0; i < $allEntry.length; i++) {
+    if (!$allEntry[i].textContent.includes($input)) {
+      $allEntry[i].className = 'row entry hidden';
+    } else {
+      $allEntry[i].className = 'row entry';
+    }
+  }
+  $searchInput.value = null;
+});
+
+function showAllEntries() {
+  var $allEntry = document.querySelectorAll('.entry');
+  for (var i = 0; i < $allEntry.length; i++) {
+    $allEntry[i].className = 'row entry';
+  }
+}
+
+$searchInput.addEventListener('focus', function (event) {
+  showAllEntries();
 });

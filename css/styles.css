@@ -198,3 +198,13 @@ a {
   font-size: 13.4px;
   margin-bottom: 1.5rem;
 }
+
+.search-bar-align {
+  display: flex;
+  margin-bottom: 2.5rem;
+}
+
+#search {
+  width: 282px;
+  margin: 0;
+}
